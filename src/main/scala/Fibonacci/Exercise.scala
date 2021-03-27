@@ -5,8 +5,8 @@ import akka.stream.{ActorMaterializer, ClosedShape, UniformFanInShape}
 import akka.stream.scaladsl.{Broadcast, Flow, GraphDSL, MergePreferred, RunnableGraph, Sink, Source, ZipWith}
 
 object Exercise extends App {
-  implicit val system = ActorSystem("FibonacciExercise")
-  implicit val materializer = ActorMaterializer()
+  implicit val system: ActorSystem = ActorSystem("FibonacciExercise")
+  implicit val materializer: ActorMaterializer.type = ActorMaterializer
 
   val fibonacciGraph = GraphDSL.create() { implicit builder =>
     import GraphDSL.Implicits._
